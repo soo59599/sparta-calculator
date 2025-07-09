@@ -1,6 +1,7 @@
 package com.v1;
 
 import java.util.Scanner;
+import java.util.Set;
 
 public class Calculator {
     public static void main(String[] args) {
@@ -18,13 +19,12 @@ public class Calculator {
             System.out.println("연산자(+,-,/,*)를 입력하세요: ");
             String operator = sc.next();
 
-            //연산자 예외처리
-            boolean isOperator = operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/");
-            while (!isOperator) {
+            //연산자 예외처리(set 활용)
+            Set<String> operators = Set.of("+", "-", "*", "/");
+            while (!operators.contains(operator)) {
                 System.out.println("유효하지 않은 연산자입니다.");
                 System.out.println("연산자(+,-,/,*)중에 한가지를 입력하세요.");
                 operator = sc.next();
-                isOperator = operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/");
             }
 
             //두번째 숫자 입력
