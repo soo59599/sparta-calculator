@@ -54,17 +54,16 @@ public class Calculator {
 
     //입력한 숫자 예외처리
     public int isNumber(Scanner sc) {
-        int num;
         while (true) {
             try {
-                num = sc.nextInt();
-                break;
+                int num = sc.nextInt();
+                sc.nextLine();
+                return num;
             } catch (InputMismatchException e) {
                 System.out.println("숫자를 입력해주세요.");
-                sc.next();
+                sc.nextLine();
             }
         }
-        return num;
     }
 
     //입력한 연산자 확인(set 활용)
@@ -77,21 +76,19 @@ public class Calculator {
 
     //입력한 연산자 예외 처리
     public char getOperator(Scanner sc) {
-        char operator;
         while (true) {
-            operator = sc.next().charAt(0);
+            char operator = sc.next().charAt(0);
             if(isOperator(operator)) {
-            break;
+                return operator;
             }else{
                 System.out.println("유효하지 않은 연산자입니다.");
                 System.out.println("연산자(+,-,/,*)중에 한가지를 입력하세요.");
             }
         }
-        return operator;
     }
 
     //입력한 계산 (숫자/0)예외 확인
-    public void isValidDivision (int num, char operator) throws IllegalArgumentException{
+    public void isValidDivision (int num, char operator){
         if(operator == '/'&& num==0) {
             throw new IllegalArgumentException("0으로 나눌 수 없습니다. 처음부터 다시 시작합니다.");
         }
