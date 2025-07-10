@@ -18,6 +18,15 @@ public class Calculator {
         this.result = result;
     }
 
+    public void removeResult(){
+        if(result.isEmpty()) {
+            System.out.println("삭제할 결과가 없습니다.\n");
+            return;
+        }
+        System.out.println("오래된 계산 내역이 삭제되었습니다.\n");
+        result.remove(0);
+    }
+
     //계산기
     public double calculate(int num1, int num2, char operator) {
 
@@ -51,7 +60,7 @@ public class Calculator {
                 num = sc.nextInt();
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("숫자만 입력 가능합니다.");
+                System.out.println("숫자를 입력해주세요.");
                 sc.next();
             }
         }

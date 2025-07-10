@@ -10,7 +10,7 @@ public class App {
         Calculator calc = new Calculator();
 
         //반복문 시작
-        while (true) {
+        outer: while (true) {
 
             //첫 숫자 입력
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -39,18 +39,29 @@ public class App {
             System.out.println();
 
 
-            System.out.println("더 계산하시겠습니까? (list 입력시 계산내역 확인)(exit 입력 시 종료)");
-            String answer = sc.next();
-            if ("exit".equalsIgnoreCase(answer)) {
-                break;
-            }else if("list".equalsIgnoreCase(answer)) {
-                List<Double> results = calc.getResults();
-                for (int i = 0; i < results.size(); i++) {
-                    System.out.println(results.get(i));
+            while(true) {
+                System.out.println("더 계산하시겠습니까?");
+                System.out.println("1. list 입력시 계산내역 확인");
+                System.out.println("2. remove 입력시 오래된 내역부터 삭제");
+                System.out.println("3. exit 입력 시 종료");
+                System.out.println("그 외 다른 키는 계산 계속하기 입니다.");
+                String answer = sc.next();
+                if ("exit".equalsIgnoreCase(answer)) {
+                    break outer;
+                } else if ("list".equalsIgnoreCase(answer)) {
+                    List<Double> results = calc.getResults();
+                    for (Double result : results) {
+                        System.out.println(result);
+                    }
+                }else if("remove".equalsIgnoreCase(answer)) {
+                    calc.removeResult();
+                }else{
+                    break;
                 }
             }
 
         }
+        sc.close();
 
     }
 
