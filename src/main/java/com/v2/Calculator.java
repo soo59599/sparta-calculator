@@ -29,19 +29,3 @@ public class Calculator {
         }
         return answer;
     }
-
-    public boolean isOperator(String operator) {
-        //연산자 예외처리(set 활용)
-        Set<String> operators = Set.of("+", "-", "*", "/");
-
-        return operators.contains(operator);
-    }
-
-//    public String getValidOperator() {
-//
-//
-//    }
-
-
-}
-
