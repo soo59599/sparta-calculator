@@ -15,8 +15,12 @@ public class App {
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int num1 = sc.nextInt();
 
+            //두번째 숫자 입력
+            System.out.print("두 번째 숫자를 입력하세요: ");
+            int num2 = sc.nextInt();
+
             //연산자 입력
-            System.out.println("연산자(+,-,/,*)를 입력하세요: ");
+            System.out.println("사칙연산 기호(+,-,/,*)를 입력하세요: ");
             char operator = sc.next().charAt(0);
 
             //연산자 예외처리(set 활용)
@@ -26,10 +30,6 @@ public class App {
                 System.out.println("연산자(+,-,/,*)중에 한가지를 입력하세요.");
                 operator = sc.next().charAt(0);
             }
-
-            //두번째 숫자 입력
-            System.out.print("두 번째 숫자를 입력하세요: ");
-            int num2 = sc.nextInt();
 
             //두번째 숫자 예외처리
             if (operator=='/' && num2 == 0) {
@@ -45,17 +45,17 @@ public class App {
 
             //계산 처리
             switch (operator) {
-                case "+":
+                case '+':
                     answer = num1 + num2;
                     break;
-                case "-":
+                case '-':
                     answer = num1 - num2;
                     break;
-                case "*":
+                case '*':
                     answer = num1 * num2;
                     break;
-                case "/":
-                    answer = num1 / num2;
+                case '/':
+                    answer = (double) num1 / num2;
                     break;
             }
 
