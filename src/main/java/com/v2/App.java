@@ -1,56 +1,53 @@
 package com.v2;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         Calculator calc = new Calculator();
 
+        //반복문 시작
         while (true) {
 
             //첫 숫자 입력
             System.out.print("첫 번째 숫자를 입력하세요: ");
-            int num1 = sc.nextInt();
+            int num1 = calc.isNumber(sc);
 
             //두번째 숫자 입력
             System.out.print("두 번째 숫자를 입력하세요: ");
-            int num2 = sc.nextInt();
+            int num2 = calc.isNumber(sc);
 
             //연산자 입력
-            System.out.println("연산자(+,-,/,*)를 입력하세요: ");
-            char operator = sc.next().charAt(0);
+            System.out.println("사칙연산 기호(+,-,/,*)를 입력하세요: ");
+            char operator = calc.getOperator(sc);
 
-            while (!calc.isOperator(operator)) {
-                System.out.println("유효하지 않은 연산자입니다.");
-                System.out.println("연산자(+,-,/,*)중에 한가지를 입력하세요.");
-                operator = sc.next().charAt(0);
+            try {
+                calc.isValidDivision(num2, operator);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                continue;
             }
 
+            //계산하기
+            double calculatedNum = calc.calculate(num1, num2, operator);
 
 
-            //두번째 숫자 예외처리
-            if (operator=='/' && num2 == 0) {
-                while (true) {
-                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                    System.out.print("두 번째 숫자를 입력하세요: ");
-                    num2 = sc.nextInt();
-                    if (num2 != 0) {
-                        break;
-                    }
-                }
-            }
-
-
-            System.out.println();
-            System.out.println("계산 결과 : ");
+            System.out.println("계산 결과 : " + calculatedNum);
             System.out.println();
 
-            System.out.println("계산을 계속하려면 아무버튼이나 입력하세요.");
-            System.out.println("계산을 그만두려면 exit를 입력하세요.");
-            String str = sc.next();
-            if ("exit".equals(str)) {
+
+            System.out.println("더 계산하시겠습니까? (list 입력시 계산내역 확인)(exit 입력 시 종료)");
+            String answer = sc.next();
+            if ("exit".equalsIgnoreCase(answer)) {
                 break;
+            }else if("list".equalsIgnoreCase(answer)) {
+                List<Double> results = calc.getResults();
+                for (int i = 0; i < results.size(); i++) {
+                    System.out.println(results.get(i));
+                }
             }
 
         }
