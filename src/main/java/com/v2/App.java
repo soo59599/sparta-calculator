@@ -19,18 +19,18 @@ public class App {
 
             //연산자 입력
             System.out.println("연산자(+,-,/,*)를 입력하세요: ");
-            String operator = sc.next();
+            char operator = sc.next().charAt(0);
 
             while (!calc.isOperator(operator)) {
                 System.out.println("유효하지 않은 연산자입니다.");
                 System.out.println("연산자(+,-,/,*)중에 한가지를 입력하세요.");
-                operator = sc.next();
+                operator = sc.next().charAt(0);
             }
 
 
 
             //두번째 숫자 예외처리
-            if (operator.equals("/") && num2 == 0) {
+            if (operator=='/' && num2 == 0) {
                 while (true) {
                     System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                     System.out.print("두 번째 숫자를 입력하세요: ");
