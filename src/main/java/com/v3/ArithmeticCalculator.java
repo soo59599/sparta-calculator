@@ -30,16 +30,16 @@ public class ArithmeticCalculator {
         //계산 처리
         switch (operator) {
             case '+':
-                answer = OperatorType.ADD.operate(num1, num2);
+                answer = num1 + num2;
                 break;
             case '-':
-                answer = OperatorType.SUB.operate(num1, num2);
+                answer = num1 - num2;
                 break;
             case '*':
-                answer =OperatorType.MUL.operate(num1, num2);
+                answer = num1 * num2;
                 break;
             case '/':
-                answer = OperatorType.DIV.operate(num1, num2);
+                answer = (double) num1 / num2;
                 break;
         }
         //결과값 저장
