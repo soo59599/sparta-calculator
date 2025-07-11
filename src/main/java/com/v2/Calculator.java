@@ -8,16 +8,12 @@ public class Calculator {
     //연산 결과를 저장하는 필드
     private List<Double> result = new ArrayList<>();
 
-    //연산 결과 Getter
+    //Getter : 연산 결과 List
     public List<Double> getResults() {
         return this.result;
     }
 
-    //연산 결과 Setter
-    public void setResults(List<Double> result) {
-        this.result = result;
-    }
-
+    //Setter : 오래된 내역 삭제
     public void removeResult(){
         if(result.isEmpty()) {
             System.out.println("삭제할 결과가 없습니다.\n");
