@@ -32,7 +32,7 @@
 ---
 
 ## 📁 디렉토리 구조
-
+```
 calculator/
 ├── v1/                  (Lv1 - 클래스 없이 구현)
 │   └── App.java
@@ -44,7 +44,7 @@ calculator/
 │   ├── ArithmeticCalculator.java
 │   └── App.java
 └── README.md
-
+```
 
 ---
 
