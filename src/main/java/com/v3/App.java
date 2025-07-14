@@ -12,7 +12,8 @@ public class App {
         ArithmeticCalculator<Number> calc = new ArithmeticCalculator<>();
 
         //반복문 시작
-        outer: while (true) {
+        outer:
+        while (true) {
 
             //첫 숫자 입력
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -26,11 +27,12 @@ public class App {
             System.out.println("사칙연산 기호(+,-,/,*)를 입력하세요: ");
             char operator = calc.getOperator(sc);
 
+            // 0으로 나누기 예외 검사
             try {
                 calc.isValidDivision(num2, operator);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
-                continue;
+                continue;  // 다시 처음으로 이동
             }
 
             //계산하기
@@ -39,8 +41,7 @@ public class App {
             System.out.println("계산 결과 : " + result);
             System.out.println();
 
-
-            while(true) {
+            while (true) {
                 System.out.println("더 계산하시겠습니까?");
                 System.out.println("1. list 입력시 계산내역 확인");
                 System.out.println("2. remove 입력시 오래된 내역부터 삭제");
@@ -54,13 +55,13 @@ public class App {
                     for (BigDecimal r : results) {
                         System.out.println(r);
                     }
-                }else if("remove".equalsIgnoreCase(answer)) {
-                    if(calc.removeOldestResult ()){
+                } else if ("remove".equalsIgnoreCase(answer)) {
+                    if (calc.removeOldestResult()) {
                         System.out.println("오래된 계산 내역이 삭제되었습니다.\n");
-                    }else{
+                    } else {
                         System.out.println("삭제할 결과가 없습니다.\n");
-                    };
-                }else{
+                    }
+                } else {
                     break;
                 }
             }
