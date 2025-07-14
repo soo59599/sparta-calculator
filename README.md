@@ -34,16 +34,17 @@
 ## 📁 디렉토리 구조
 
 calculator/
-├── v1/                  # Lv1 - 클래스 없이 구현
+├── v1/                  (Lv1 - 클래스 없이 구현)
 │   └── App.java
-├── v2/                  # Lv2 - 클래스 기반 객체지향
+├── v2/                  (Lv2 - 클래스 기반 객체지향)
 │   ├── Calculator.java
 │   └── App.java
-├── v3/                  # Lv3 - 고급 문법 적용
+├── v3/                  (Lv3 - 고급 문법 적용)
 │   ├── OperatorType.java
 │   ├── ArithmeticCalculator.java
 │   └── App.java
 └── README.md
+
 
 ---
 
