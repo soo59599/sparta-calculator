@@ -76,7 +76,7 @@ public class ArithmeticCalculator<T extends Number> {
 
             char operator = input.charAt(0);
 
-            if (Arrays.stream(OperatorType.values()).anyMatch(op -> op.matches(operator))) {
+            if (OperatorType.isValidOperator(operator)) {
                 return operator;
             }
 
