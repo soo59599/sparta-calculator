@@ -7,7 +7,7 @@ import java.util.*;
 public class ArithmeticCalculator<T extends Number> {
 
     //연산 결과를 저장하는 필드
-    private List<BigDecimal> results = new ArrayList<>();
+    private final List<BigDecimal> results = new ArrayList<>();
 
     //Getter : 연산 결과 List
     public List<BigDecimal> getResults() {
