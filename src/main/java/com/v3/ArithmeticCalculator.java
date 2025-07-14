@@ -11,7 +11,7 @@ public class ArithmeticCalculator<T extends Number> {
 
     //Getter : 연산 결과 List
     public List<BigDecimal> getResults() {
-        return this.results;
+        return Collections.unmodifiableList(results);
     }
 
     //Setter : 오래된 내역 삭제
