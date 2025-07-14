@@ -65,5 +65,5 @@ calculator/
   → 클래스 없는 계산기부터 캡슐화까지 구현하며 겪은 문제와 해결
 
 - [2025.07.14 TIL - 계산기 과제 v3: 제네릭](https://velog.io/@sooh59599/2025.07.14-TIL-%EA%B3%84%EC%82%B0%EA%B8%B0-%EA%B3%BC%EC%A0%9C-v3%EC%A0%9C%EB%84%A4%EB%A6%AD)  
-  → 제네릭 타입 설계, BigDecimal 활용, 람다/스트림으로 결과 필터링까지
+  → 제네릭 타입 설계, BigDecimal 활용, 람다/스트림 활용
 
