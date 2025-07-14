@@ -14,11 +14,11 @@ public class App {
 
             //첫 숫자 입력
             System.out.print("첫 번째 숫자를 입력하세요: ");
-            int num1 = calc.isNumber(sc);
+            int num1 = calc.getNumber(sc);
 
             //두번째 숫자 입력
             System.out.print("두 번째 숫자를 입력하세요: ");
-            int num2 = calc.isNumber(sc);
+            int num2 = calc.getNumber(sc);
 
             //연산자 입력
             System.out.println("사칙연산 기호(+,-,/,*)를 입력하세요: ");
@@ -32,10 +32,9 @@ public class App {
             }
 
             //계산하기
-            double calculatedNum = calc.calculate(num1, num2, operator);
+            double result = calc.calculate(num1, num2, operator);
 
-
-            System.out.println("계산 결과 : " + calculatedNum);
+            System.out.println("계산 결과 : " + result);
             System.out.println();
 
 
@@ -50,11 +49,15 @@ public class App {
                     break outer;
                 } else if ("list".equalsIgnoreCase(answer)) {
                     List<Double> results = calc.getResults();
-                    for (Double result : results) {
-                        System.out.println(result);
+                    for (Double r : results) {
+                        System.out.println(r);
                     }
                 }else if("remove".equalsIgnoreCase(answer)) {
-                    calc.removeResult();
+                    if(calc.removeOldestResult ()){
+                        System.out.println("오래된 계산 내역이 삭제되었습니다.\n");
+                    }else{
+                        System.out.println("삭제할 결과가 없습니다.\n");
+                    };
                 }else{
                     break;
                 }
