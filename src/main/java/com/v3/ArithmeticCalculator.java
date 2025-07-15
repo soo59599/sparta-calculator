@@ -93,5 +93,18 @@ public class ArithmeticCalculator<T extends Number> {
         }
     }
 
+    //저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력
+    public List<Double> printResultsOverThreshold(double num){
+        List<Double> thresholdResults = new ArrayList<>();
+
+        for (BigDecimal result : results) {
+            if (result.doubleValue() >= num) {
+                thresholdResults.add(result.doubleValue());
+            }
+        }
+
+        return thresholdResults;
+    }
+
 
 }

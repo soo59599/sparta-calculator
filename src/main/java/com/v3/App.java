@@ -47,6 +47,7 @@ public class App {
                 System.out.println("2. remove 입력시 오래된 내역부터 삭제");
                 System.out.println("3. exit 입력 시 종료");
                 System.out.println("그 외 다른 키는 계산 계속하기 입니다.");
+                System.out.println("4. threshold 입력 시 저장된 연산 결과들 중 새로 입력한 값보다 큰 값을 가진 목록을 볼 수 있습니다.");
                 String answer = sc.next();
                 if ("exit".equalsIgnoreCase(answer)) {
                     break outer;
@@ -61,7 +62,13 @@ public class App {
                     } else {
                         System.out.println("삭제할 결과가 없습니다.\n");
                     }
-                } else {
+                } else if("threshold".equalsIgnoreCase(answer)) {
+                    System.out.println("기준값을 입력해 주세요");
+                    for(double d : calc.printResultsOverThreshold(sc.nextDouble())){
+                        System.out.println(d);
+                    }
+                }
+                else {
                     break;
                 }
             }
